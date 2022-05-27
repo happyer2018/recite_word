@@ -16,6 +16,7 @@
         android:id="@+id/learn_tv"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/learn_tv"
         android:gravity="center"
         android:text="开始学习"
@@ -24,14 +25,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:text="今日学习内容"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="今日学习内容" />
 
     <TextView
         android:id="@+id/content_tv"
-        tools:text="aa"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:text="aa" />
 </LinearLayout>
