@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    tools:context=".MainActivity">
+
+    <com.hp.gre3000.utils.StatusBarHeightView
+        android:layout_width="1dp"
+        android:layout_height="1dp" />
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="15dp" />
+
+    <TextView
+        android:id="@+id/tv_zx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_zx"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="正序版"
+        android:visibility="gone"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_lx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_lx"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="GRE3000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_ys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_lx"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="雅思单词"
+        android:textSize="20sp" />
+</LinearLayout>
