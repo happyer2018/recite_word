@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtils.setDarkFontStatus(this);
+        StatusBarUtils.setTransparentStatusImmerse(this);
+        StatusBarUtils.setDarkFontStatusImmerse(this);
         setContentView(R.layout.activity_main);
         zx = findViewById(R.id.tv_zx);
         lx = findViewById(R.id.tv_lx);

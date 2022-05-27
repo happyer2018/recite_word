@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
@@ -26,7 +27,9 @@ import java.util.List;
 import java.util.Map;
 
 import static com.hp.gre3000.WordLearningActivity.DATE_KEY;
+import static com.hp.gre3000.WordLearningActivity.LIST_CHANGE_KEY;
 import static com.hp.gre3000.WordLearningActivity.LIST_COUNT_KEY;
+import static com.hp.gre3000.WordLearningActivity.POSITION_KEY;
 
 public class LearningActivity extends AppCompatActivity {
     public static final String SHARE_TODAY = "shareToday";
@@ -43,11 +46,20 @@ public class LearningActivity extends AppCompatActivity {
         intent.putExtra("path", path);
         context.startActivity(intent);
     }
+    public void hideActionBar() {
+        try {
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            getSupportActionBar().hide();
+        } catch (Exception e) {
 
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtils.setDarkFontStatus(this);
+        hideActionBar();
+        StatusBarUtils.setTransparentStatusImmerse(this);
+        StatusBarUtils.setDarkFontStatusImmerse(this);
         setContentView(R.layout.activity_learning);
         content_tv = findViewById(R.id.content_tv);
         learn_tv = findViewById(R.id.learn_tv);
@@ -67,10 +79,12 @@ public class LearningActivity extends AppCompatActivity {
                     if (currentListNum == -1) {
                         for (int i = 0; i < listNumS.size(); i++) {
                             listNumS.get(i).setLearn(false);
+                            SharedPre.set(path + listNumS.get(i).getListNum() + LIST_CHANGE_KEY, "");
                         }
                         String s = GsonFix.getInstance().getGson().toJson(listNumS);
                         SharedPre.set(path + SHARE_TODAY_LIST_NUM_S, s);
                         currentListNum = listNumS.get(0).getListNum();
+
                     }
                     WordLearningActivity.start(LearningActivity.this, path, currentListNum);
                 }
@@ -123,7 +137,7 @@ public class LearningActivity extends AppCompatActivity {
             String s = GsonFix.getInstance().getGson().toJson(listNumS);
             SharedPre.set(path + SHARE_TODAY_LIST_NUM_S, s);
             SharedPre.set(path + SHARE_TODAY_TEXT, text);
-
+            SharedPre.set(path + POSITION_KEY, 0);
         } else {
             String string = SharedPre.getString(path + SHARE_TODAY_LIST_NUM_S);
             listNumS = GsonFix.getInstance().getGson().fromJson(string, new TypeToken<List<TodayLearnBean>>() {

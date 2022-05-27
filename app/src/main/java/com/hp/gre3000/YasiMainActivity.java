@@ -25,7 +25,8 @@ public class YasiMainActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtils.setDarkFontStatus(this);
+        StatusBarUtils.setTransparentStatusImmerse(this);
+        StatusBarUtils.setDarkFontStatusImmerse(this);
         setContentView(R.layout.activity_yasi_main);
         tv_1 = findViewById(R.id.tv_1);
         tv_2 = findViewById(R.id.tv_2);

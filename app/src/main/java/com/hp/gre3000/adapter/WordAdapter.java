@@ -72,4 +72,8 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
 
         }
     }
+
+    public List<WordBean> getList() {
+        return list;
+    }
 }
